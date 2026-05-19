@@ -131,23 +131,21 @@ h1, h2, h3, h4 {
 
 /* Testimonials */
 .hh-testimonials {
-  background-color: var(--hh-section-tint);
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
   margin: 2rem 0;
 }
 
 .hh-testimonials blockquote {
   max-width: 680px;
-  margin: 0 auto 2.5rem;
-  padding: 1.5rem 1.75rem;
+  margin: 0 auto 1.5rem;
+  padding: 2rem 2rem 1.5rem;
+  background-color: var(--hh-section-tint);
   font-style: italic;
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--hh-text);
-  background-color: #fff;
   border-left: 3px solid var(--hh-brand);
   border-radius: 0.375rem;
-  box-shadow: 0 1px 3px rgba(34, 24, 38, 0.06);
 }
 
 .hh-testimonials blockquote:last-child {
