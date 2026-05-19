@@ -1,10 +1,26 @@
 [
   {
-    "title": "Cuddles & Connection",
-    "date_display": "Saturday, June 7 · 6:00–9:30 PM",
-    "date_iso": "2026-06-07T18:00:00-07:00",
+    "title": "Extended Play",
+    "date_display": "Wednesday, May 27 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-05-27T18:00:00",
     "location": "Seattle, WA",
-    "ticket_url": "https://www.eventbrite.com/o/69485758173?utm_source=website&utm_medium=events_widget&utm_campaign=launch",
+    "ticket_url": "https://www.eventbrite.com/e/extended-play-tickets-1985780201037?utm_source=website&utm_medium=events_widget&utm_campaign=launch",
+    "sold_out": false
+  },
+  {
+    "title": "Men's Cuddles & Connection",
+    "date_display": "Friday, June 12 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-06-12T18:00:00",
+    "location": "Seattle, WA",
+    "ticket_url": "https://www.eventbrite.com/e/mens-cuddles-connection-tickets-1987374129520?utm_source=website&utm_medium=events_widget&utm_campaign=launch",
+    "sold_out": false
+  },
+  {
+    "title": "Cuddles & Connection",
+    "date_display": "Wednesday, June 24 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-06-24T18:00:00",
+    "location": "Seattle, WA",
+    "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-1987375129511?utm_source=website&utm_medium=events_widget&utm_campaign=launch",
     "sold_out": false
   }
 ]
