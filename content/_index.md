@@ -1,10 +1,12 @@
 ---
 title: "Happy Humanimals"
-seoTitle: "Happy Humanimals — Cuddle Party–Style Events in Seattle"
+seoTitle: "Happy Humanimals — Cuddle Party-Style Events in Seattle"
 description: "Cuddle and connection events in Seattle that build community, welcome curious and nervous newcomers, and teach consent skills you can take into your whole life."
 images: ["images/cuddles-and-connection.jpg"]
 heroHeading: "We're glad you're here."
-heroSubtitle: "Whether you're curious, hopeful, or uncertain, this is for you."
+heroSubtitle:
+  - "Cuddle Party-style events, education, and community in Seattle."
+  - "Whether you're curious, hopeful, or uncertain, this is for you."
 heroCta: "See upcoming events"
 eventbriteUrl: "https://www.eventbrite.com/o/69485758173"
 testimonials:

@@ -95,6 +95,10 @@ article > header > h1,
   line-height: 1.6;
 }
 
+.hh-hero .subtitle:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+
 /* CTA buttons */
 .hh-btn {
   display: inline-block;

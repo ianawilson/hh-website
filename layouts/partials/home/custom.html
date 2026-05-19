@@ -2,13 +2,13 @@
 
 <!-- Hero image -->
 <div class="hh-hero-image">
-  <img src="{{ "images/cuddles-and-connection.jpg" | relURL }}" alt="Happy Humanimals" />
+  <img src="{{ "images/cuddles-and-connection.jpg" | relURL }}" alt="Illustration of five people in cozy clothing on a floor mattress — two cuddling, three in conversation." />
 </div>
 
 <!-- Hero -->
 <section class="hh-hero">
   <h1>{{ .Params.heroHeading | default "We're glad you're here." }}</h1>
-  <p class="subtitle">{{ .Params.heroSubtitle | default "" }}</p>
+  {{ range .Params.heroSubtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
   <a href="{{ .Params.eventbriteUrl | default site.Params.eventbriteUrl }}?utm_source=cuddleseattle&utm_medium=website&utm_content=hero-cta" class="hh-btn" target="_blank" rel="noopener">{{ .Params.heroCta | default "See upcoming events" }}</a>
 </section>
 
