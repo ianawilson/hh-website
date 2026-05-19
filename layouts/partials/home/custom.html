@@ -9,7 +9,7 @@
 <section class="hh-hero">
   <h1>{{ .Params.heroHeading | default "We're glad you're here." }}</h1>
   <p class="subtitle">{{ .Params.heroSubtitle | default "" }}</p>
-  <a href="{{ .Params.eventbriteUrl | default site.Params.eventbriteUrl }}?utm_source=website&utm_medium=hero_cta&utm_campaign=launch" class="hh-btn" target="_blank" rel="noopener">{{ .Params.heroCta | default "See upcoming events" }}</a>
+  <a href="{{ .Params.eventbriteUrl | default site.Params.eventbriteUrl }}?utm_source=cuddleseattle&utm_medium=website&utm_content=hero-cta" class="hh-btn" target="_blank" rel="noopener">{{ .Params.heroCta | default "See upcoming events" }}</a>
 </section>
 
 <!-- Body copy -->
@@ -32,9 +32,9 @@
         {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
       </div>
       {{ if not .sold_out }}
-      <a href="{{ .ticket_url }}" class="hh-btn" target="_blank" rel="noopener">Register</a>
+      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-home" class="hh-btn" target="_blank" rel="noopener">Register</a>
       {{ else }}
-      <a href="{{ .ticket_url }}" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
+      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-home" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
       {{ end }}
     </div>
     {{ end }}

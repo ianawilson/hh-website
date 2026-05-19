@@ -42,7 +42,7 @@ enableRobotsTXT = true
 
   [[menus.footer]]
     name = "Eventbrite"
-    url = "https://www.eventbrite.com/o/69485758173"
+    url = "https://www.eventbrite.com/o/69485758173?utm_source=cuddleseattle&utm_medium=website&utm_content=footer"
     weight = 1
   [[menus.footer]]
     name = "Newsletter"

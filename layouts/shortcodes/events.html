@@ -10,9 +10,9 @@
         {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
       </div>
       {{ if not .sold_out }}
-      <a href="{{ .ticket_url }}" class="hh-btn" target="_blank" rel="noopener">Register</a>
+      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn" target="_blank" rel="noopener">Register</a>
       {{ else }}
-      <a href="{{ .ticket_url }}" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
+      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
       {{ end }}
     </div>
     {{ end }}

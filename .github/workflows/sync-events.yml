@@ -68,10 +68,7 @@ jobs:
             venue = ev.get("venue") or {}
             location = venue.get("address", {}).get("city", "Seattle") + ", WA"
 
-            ticket_url = (
-              ev["url"]
-              + "?utm_source=website&utm_medium=events_widget&utm_campaign=launch"
-            )
+            ticket_url = ev["url"]
 
             events.append({
               "title": ev["name"]["text"],
