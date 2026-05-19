@@ -35,6 +35,13 @@ jobs:
           events = []
           now = datetime.datetime.now(datetime.timezone.utc)
           for ev in data.get("events", []):
+            title = ev["name"]["text"]
+            # Website is positioned for first-time newcomers; only surface
+            # foundational events. Returner-only events (e.g. Extended Play)
+            # stay off the public funnel.
+            if "Cuddles & Connection" not in title:
+              continue
+
             start_utc = datetime.datetime.fromisoformat(
               ev["start"]["utc"].replace("Z", "+00:00")
             )
