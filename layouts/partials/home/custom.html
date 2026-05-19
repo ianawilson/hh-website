@@ -1,5 +1,10 @@
 {{ $events := site.Data.events }}
 
+<!-- Hero image -->
+<div class="hh-hero-image">
+  <img src="{{ "/images/cuddles-and-connection.jpg" | relURL }}" alt="Happy Humanimals" />
+</div>
+
 <!-- Hero -->
 <section class="hh-hero">
   <h1>{{ .Params.heroHeading | default "We're glad you're here." }}</h1>
@@ -40,8 +45,9 @@
 
 <!-- Event JSON-LD intentionally omitted: Eventbrite is canonical source for event structured data; duplicating here would create competing entries in Google's event index. -->
 
-<!-- Secondary CTA -->
-<div class="hh-secondary-cta">
-  <p>Need more info?</p>
-  <a href="{{ (site.GetPage "/learn-more").RelPermalink }}" class="hh-btn-secondary">Learn more about our events and facilitators</a>
-</div>
+<!-- Reassurance card -->
+<a href="{{ (site.GetPage "/learn-more").RelPermalink }}" class="hh-info-card">
+  <h3>New to this?</h3>
+  <p>We've put together what to expect, who we are, and how it works.</p>
+  <span class="hh-info-card-link">Learn more &rarr;</span>
+</a>
