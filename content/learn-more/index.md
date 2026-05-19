@@ -1,7 +1,7 @@
 ---
 title: "Learn More"
 description: "Everything you need to know about Cuddles & Connection events with Happy Humanimals in Seattle."
-eventbriteUrl: "https://www.eventbrite.com/o/happy-humanimals-96238990603"
+eventbriteUrl: "https://www.eventbrite.com/o/69485758173"
 showTableOfContents: false
 ---
 

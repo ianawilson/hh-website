@@ -38,42 +38,7 @@
   {{ end }}
 </section>
 
-<!-- Event JSON-LD -->
-{{ if $events }}
-  {{ $eventLd := slice }}
-  {{ range $events }}
-    {{ $availability := cond .sold_out "https://schema.org/SoldOut" "https://schema.org/InStock" }}
-    {{ $event := dict
-      "@context" "https://schema.org"
-      "@type" "Event"
-      "name" .title
-      "startDate" .date_iso
-      "location" (dict
-        "@type" "Place"
-        "name" "Seattle, WA"
-        "address" (dict
-          "@type" "PostalAddress"
-          "addressLocality" "Seattle"
-          "addressRegion" "WA"
-        )
-      )
-      "organizer" (dict
-        "@type" "Organization"
-        "name" "Happy Humanimals"
-        "url" "https://cuddleseattle.com"
-      )
-      "offers" (dict
-        "@type" "Offer"
-        "url" .ticket_url
-        "availability" $availability
-      )
-      "eventStatus" "https://schema.org/EventScheduled"
-      "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
-    }}
-    {{ $eventLd = $eventLd | append $event }}
-  {{ end }}
-<script type="application/ld+json">{{ $eventLd | jsonify | safeJS }}</script>
-{{ end }}
+<!-- Event JSON-LD intentionally omitted: Eventbrite is canonical source for event structured data; duplicating here would create competing entries in Google's event index. -->
 
 <!-- Secondary CTA -->
 <div class="hh-secondary-cta">

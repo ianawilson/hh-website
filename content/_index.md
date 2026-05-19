@@ -4,7 +4,7 @@ description: "Platonic touch and consent workshops in Seattle. A welcoming, safe
 heroHeading: "We're glad you're here."
 heroSubtitle: "Whether you're curious, hopeful, or uncertain, this is for you."
 heroCta: "See upcoming events"
-eventbriteUrl: "https://www.eventbrite.com/o/happy-humanimals-96238990603"
+eventbriteUrl: "https://www.eventbrite.com/o/69485758173"
 testimonials:
   - quote: "I remember the first time coming to Happy Humanimals, I was relatively newly divorced and was feeling a loss of connection with myself and others, also deep grief for loss of touch. Along with those feelings I was nervous about arriving, what would be expected of me, will my boundaries be crossed, was this a very bad idea? I arrived and felt deeply held and cared for. I quickly felt quite safe and open to connection. I've been back often, and it's made a powerful impact in my life."
     name: "Christa"
