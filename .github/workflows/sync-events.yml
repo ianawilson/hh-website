@@ -16,13 +16,13 @@ jobs:
 
       - name: Fetch Eventbrite events
         env:
-          EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
+          EVENTBRITE_PRIVATE_TOKEN: ${{ secrets.EVENTBRITE_PRIVATE_TOKEN }}
           EVENTBRITE_ORG_ID: ${{ secrets.EVENTBRITE_ORG_ID }}
         run: |
           python3 - <<'EOF'
           import json, os, urllib.request, datetime
 
-          token = os.environ["EVENTBRITE_TOKEN"]
+          token = os.environ["EVENTBRITE_PRIVATE_TOKEN"]
           org_id = os.environ["EVENTBRITE_ORG_ID"]
 
           url = (
