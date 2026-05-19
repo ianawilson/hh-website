@@ -2,7 +2,7 @@ name: Sync Eventbrite events
 
 on:
   schedule:
-    - cron: "0 8 * * *"  # 8:00 UTC = midnight Pacific (approx)
+    - cron: "0 3 * * *"  # 3:00 UTC = 8pm PDT / 7pm PST
   workflow_dispatch:
 
 jobs:
