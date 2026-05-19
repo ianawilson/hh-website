@@ -21,7 +21,7 @@ This 3.5 hour event is split into two halves: a communication skills workshop an
 - During open connection time, participants might cuddle, practice, relax, observe, or take time for themselves.
 - It's common to see pairs, groups of three, larger groups, and individuals having time on their own.
 - Participants move through the cuddle space as they make requests, invite someone new to their connection, change their minds and move to something else, and take breaks.
-- There are designated spaces for quiet solo time, and for making new connections.
+- There are designated spaces for quiet solo time and for making new connections.
 
 To us, cuddling means intentionally connecting and may or may not include physical contact. Some examples:
 
