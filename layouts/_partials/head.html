@@ -2,13 +2,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="{{ .Site.Params.defaultThemeColor | default "#ffffff" }}" />
-  {{/* Title — HH override: homepage uses .Params.seoTitle if set, else falls back to .Site.Title */}}
+  {{/* Title — HH override: seoTitle param overrides default on any page */}}
   {{ if .IsHome -}}
     <title>{{ if .Params.seoTitle }}{{ .Params.seoTitle | emojify }}{{ else }}{{ .Site.Title | emojify }}{{ end }}</title>
     <meta name="title" content="{{ if .Params.seoTitle }}{{ .Params.seoTitle | emojify }}{{ else }}{{ .Site.Title | emojify }}{{ end }}" />
   {{- else -}}
-    <title>{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}</title>
-    <meta name="title" content="{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}" />
+    <title>{{ if .Params.seoTitle }}{{ .Params.seoTitle | emojify }}{{ else }}{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}{{ end }}</title>
+    <meta name="title" content="{{ if .Params.seoTitle }}{{ .Params.seoTitle | emojify }}{{ else }}{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}{{ end }}" />
   {{- end }}
   {{/* Asset bundles */}}
   {{ $assets := newScratch }}

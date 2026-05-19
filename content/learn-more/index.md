@@ -1,6 +1,7 @@
 ---
 title: "Learn More"
-description: "Everything you need to know about Cuddles & Connection events with Happy Humanimals in Seattle."
+seoTitle: "Happy Humanimals — About & How It Works"
+description: "What happens at Cuddles & Connection, how we founded Happy Humanimals, and more about your co-facilitators, Anna Joy and Ian."
 eventbriteUrl: "https://www.eventbrite.com/o/69485758173"
 showTableOfContents: false
 ---
