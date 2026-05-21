@@ -3,3 +3,15 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <script data-goatcounter="https://happyhumanimals.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="eventbrite.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var content = new URL(this.href).searchParams.get('utm_content') || 'unknown';
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'eventbrite-click/' + content, event: true });
+      }
+    });
+  });
+});
+</script>
