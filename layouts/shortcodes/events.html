@@ -21,7 +21,8 @@
   {{ end }}
 </section>
 {{ range $events }}
-{{ $loc := dict "@type" "Place" "name" .location "address" (dict "@type" "PostalAddress" "addressLocality" "Seattle" "addressRegion" "WA" "addressCountry" "US") }}
+{{ $city := index (split .location ", ") 0 }}
+{{ $loc := dict "@type" "Place" "name" .location "address" (dict "@type" "PostalAddress" "addressLocality" $city "addressRegion" "WA" "addressCountry" "US") }}
 {{ $availability := cond .sold_out "https://schema.org/SoldOut" "https://schema.org/InStock" }}
 {{ $offers := dict "@type" "Offer" "url" .ticket_url "availability" $availability }}
 {{ $schema := dict "@context" "https://schema.org" "@type" "Event" "name" .title "startDate" .date_iso "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "location" $loc "organizer" (dict "@type" "Organization" "name" "Happy Humanimals" "url" "https://cuddleseattle.com") "offers" $offers "sameAs" .ticket_url }}
