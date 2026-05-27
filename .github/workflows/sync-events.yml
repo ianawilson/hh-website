@@ -31,7 +31,7 @@ jobs:
 
           url = (
             f"https://www.eventbriteapi.com/v3/organizers/{org_id}/events/"
-            f"?status=live&expand=venue&order_by=start_asc&token={token}"
+            f"?status=live,sold_out&expand=venue&order_by=start_asc&token={token}"
           )
           with urllib.request.urlopen(url) as r:
             data = json.loads(r.read())
@@ -89,7 +89,7 @@ jobs:
             except Exception:
               existing = []
             if existing:
-              print("WARNING: API returned 0 events but existing file has entries — skipping write to avoid silent wipe.")
+              print("WARNING: 0 events passed filters (API may have returned data but all were filtered out or in the past) — skipping write to avoid silent wipe.")
               raise SystemExit(1)
 
           with open("data/events.json", "w") as f:
