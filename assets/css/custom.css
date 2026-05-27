@@ -144,6 +144,33 @@ article > header > h1,
   line-height: 1.75;
 }
 
+/* Section divider */
+.hh-section-rule {
+  width: 48px;
+  border: none;
+  border-top: 2px solid var(--hh-border);
+  margin: 0 auto 3rem;
+}
+
+/* PBS video embed */
+.hh-video-wrap {
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.hh-video-wrap h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.hh-video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+  display: block;
+}
+
 /* Testimonials */
 .hh-testimonials {
   padding: 2rem 1.5rem;
