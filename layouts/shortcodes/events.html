@@ -6,14 +6,9 @@
     <div class="hh-event-card">
       <div class="event-info">
         <div class="event-title">{{ .title }}</div>
-        <div class="event-meta">{{ .date_display }} · {{ .location }}</div>
-        {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
+        <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
       </div>
-      {{ if not .sold_out }}
       <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn" target="_blank" rel="noopener">Register</a>
-      {{ else }}
-      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
-      {{ end }}
     </div>
     {{ end }}
   {{ else }}
@@ -21,11 +16,15 @@
   {{ end }}
 </section>
 {{ range $events }}
-{{ $city := index (split .location ", ") 0 }}
-{{ $loc := dict "@type" "Place" "name" .location "address" (dict "@type" "PostalAddress" "addressLocality" $city "addressRegion" "WA" "addressCountry" "US") }}
-{{ $availability := cond .sold_out "https://schema.org/SoldOut" "https://schema.org/InStock" }}
-{{ $offers := dict "@type" "Offer" "url" .ticket_url "availability" $availability }}
-{{ $schema := dict "@context" "https://schema.org" "@type" "Event" "name" .title "startDate" .date_iso "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "location" $loc "organizer" (dict "@type" "Organization" "name" "Happy Humanimals" "url" "https://cuddleseattle.com") "offers" $offers "sameAs" .ticket_url }}
+{{ $offers := dict "@type" "Offer" "url" .ticket_url "availability" "https://schema.org/InStock" }}
+{{ $schema := dict "@context" "https://schema.org" "@type" "Event" "name" .title "startDate" .date_iso "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "organizer" (dict "@type" "Organization" "name" "Happy Humanimals" "url" "https://cuddleseattle.com") "offers" $offers "sameAs" .ticket_url }}
+{{ with .location }}
+{{ $parts := split . ", " }}
+{{ $addr := dict "@type" "PostalAddress" "addressLocality" (index $parts 0) "addressCountry" "US" }}
+{{ $region := index $parts 1 }}
+{{ if $region }}{{ $addr = merge $addr (dict "addressRegion" $region) }}{{ end }}
+{{ $schema = merge $schema (dict "location" (dict "@type" "Place" "name" . "address" $addr)) }}
+{{ end }}
 {{ with .date_iso_end }}{{ $schema = merge $schema (dict "endDate" .) }}{{ end }}
 <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
 {{ end }}

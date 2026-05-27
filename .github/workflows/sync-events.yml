@@ -31,16 +31,15 @@ jobs:
 
           url = (
             f"https://www.eventbriteapi.com/v3/organizers/{org_id}/events/"
-            f"?status=live,sold_out&expand=venue&order_by=start_asc&token={token}"
+            f"?status=live&expand=venue&order_by=start_asc&token={token}"
           )
           with urllib.request.urlopen(url) as r:
             data = json.loads(r.read())
 
           seattle_tz = ZoneInfo("America/Los_Angeles")
-          raw_events = data.get("events", [])
           events = []
           now = datetime.datetime.now(datetime.timezone.utc)
-          for ev in raw_events:
+          for ev in data.get("events", []):
             title = ev["name"]["text"]
             # Website is positioned for first-time newcomers; only surface
             # foundational events. Returner-only events (e.g. Extended Play)
@@ -67,31 +66,28 @@ jobs:
               + end_local.strftime("%-I:%M %p")
             )
 
-            sold_out = ev.get("status") == "sold_out"
-
-            venue = ev.get("venue") or {}
-            location = venue.get("address", {}).get("city", "Seattle") + ", WA"
-
             ticket_url = ev["url"]
 
-            events.append({
+            addr = (ev.get("venue") or {}).get("address") or {}
+            city = addr.get("city")
+            region = addr.get("region")
+            if city and region:
+              location = f"{city}, {region}"
+            elif city:
+              location = city
+            else:
+              location = None
+
+            event_data = {
               "title": ev["name"]["text"],
               "date_display": date_display,
               "date_iso": start_local.isoformat(),
               "date_iso_end": end_local.isoformat(),
-              "location": location,
               "ticket_url": ticket_url,
-              "sold_out": sold_out,
-            })
-
-          if len(events) == 0 and len(raw_events) > 0:
-            try:
-              existing = json.loads(open("data/events.json").read())
-            except Exception:
-              existing = []
-            if existing:
-              print("WARNING: API returned events but 0 passed filters — skipping write to avoid silent wipe.")
-              raise SystemExit(1)
+            }
+            if location:
+              event_data["location"] = location
+            events.append(event_data)
 
           with open("data/events.json", "w") as f:
             json.dump(events, f, indent=2)
