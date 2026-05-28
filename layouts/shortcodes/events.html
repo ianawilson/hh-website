@@ -6,14 +6,9 @@
     <div class="hh-event-card">
       <div class="event-info">
         <div class="event-title">{{ .title }}</div>
-        <div class="event-meta">{{ .date_display }} · {{ .location }}</div>
-        {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
+        <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
       </div>
-      {{ if not .sold_out }}
       <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn" target="_blank" rel="noopener">Register</a>
-      {{ else }}
-      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
-      {{ end }}
     </div>
     {{ end }}
   {{ else }}

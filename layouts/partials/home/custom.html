@@ -2,7 +2,7 @@
 
 <!-- Hero image -->
 <div class="hh-hero-image">
-  <img src="{{ "images/cuddles-and-connection.jpg" | relURL }}" alt="Illustration of five people in cozy clothing on a floor mattress — two cuddling, three in conversation." />
+  <img src="{{ "images/cuddles-and-connection.jpg" | relURL }}" alt="Illustration of five people in cozy clothing on a floor mattress — two cuddling, three in conversation." width="1600" height="1066" fetchpriority="high" />
 </div>
 
 <!-- Hero -->
@@ -37,22 +37,15 @@
     <div class="hh-event-card">
       <div class="event-info">
         <div class="event-title">{{ .title }}</div>
-        <div class="event-meta">{{ .date_display }} · {{ .location }}</div>
-        {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
+        <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
       </div>
-      {{ if not .sold_out }}
       <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-home" class="hh-btn" target="_blank" rel="noopener">Register</a>
-      {{ else }}
-      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-home" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
-      {{ end }}
     </div>
     {{ end }}
   {{ else }}
   <p>No upcoming events listed yet. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
   {{ end }}
 </section>
-
-<!-- Event JSON-LD intentionally omitted: Eventbrite is canonical source for event structured data; duplicating here would create competing entries in Google's event index. -->
 
 <!-- Reassurance card -->
 <a href="{{ (site.GetPage "/learn-more").RelPermalink }}" class="hh-info-card">

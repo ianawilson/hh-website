@@ -41,7 +41,7 @@ Happy Humanimals was founded in Seattle in 2022 with the intention to create com
 
 Happy Humanimals is lovingly inspired by [Cuddle Party™](https://www.cuddleparty.com/) and is co-created and co-facilitated by Anna Joy Reedy ([Somatic Experiencing Practitioner](https://directory.traumahealing.org/practitioner/anna-joy-reedy/), [Certified Cuddlist](https://cuddlist.com/annajoy)) and Ian Wilson ([Certified Cuddlist](https://cuddlist.com/ianw)).
 
-{{< figure src="/images/ian-and-anna-joy.jpg" alt="Anna Joy Reedy and Ian Wilson" class="hh-facilitator-photo" >}}
+{{< figure src="/images/ian-and-anna-joy.jpg" alt="Anna Joy Reedy and Ian Wilson" class="hh-facilitator-photo" width="1024" height="677" loading="lazy" >}}
 
 Anna Joy Reedy, [SEP](https://directory.traumahealing.org/practitioner/anna-joy-reedy/) (she/her) found herself in her first group cuddle experience on a dance floor in 2013. Inspired to recreate this slice of heaven as often as possible and share it with the world, she completed the [Cuddlist](https://cuddlist.com/annajoy) and [Cuddle Party™](https://www.cuddleparty.com/) certifications along with a series of related trainings. She offers body-based 1:1 touch and trauma sessions; she has facilitated consent workshops across the western United States since co-founding Happy Humanimals in Seattle in 2022. Learn more and work with Anna Joy by visiting [her website](https://ajr.squarespace.com/).
 

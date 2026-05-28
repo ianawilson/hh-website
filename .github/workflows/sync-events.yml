@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install tzdata
+        run: pip install tzdata --quiet
+
       - name: Fetch Eventbrite events
         env:
           EVENTBRITE_PRIVATE_TOKEN: ${{ secrets.EVENTBRITE_PRIVATE_TOKEN }}
@@ -21,6 +24,7 @@ jobs:
         run: |
           python3 - <<'EOF'
           import json, os, urllib.request, datetime
+          from zoneinfo import ZoneInfo
 
           token = os.environ["EVENTBRITE_PRIVATE_TOKEN"]
           org_id = os.environ["EVENTBRITE_ORG_ID"]
@@ -32,6 +36,7 @@ jobs:
           with urllib.request.urlopen(url) as r:
             data = json.loads(r.read())
 
+          seattle_tz = ZoneInfo("America/Los_Angeles")
           events = []
           now = datetime.datetime.now(datetime.timezone.utc)
           for ev in data.get("events", []):
@@ -48,12 +53,10 @@ jobs:
             if start_utc < now:
               continue
 
-            start_local = start_utc.astimezone(
-              datetime.timezone(datetime.timedelta(hours=-7))
-            )
+            start_local = start_utc.astimezone(seattle_tz)
             end_local = datetime.datetime.fromisoformat(
               ev["end"]["utc"].replace("Z", "+00:00")
-            ).astimezone(datetime.timezone(datetime.timedelta(hours=-7)))
+            ).astimezone(seattle_tz)
 
             date_display = (
               start_local.strftime("%A, %B %-d")
@@ -63,21 +66,27 @@ jobs:
               + end_local.strftime("%-I:%M %p")
             )
 
-            sold_out = ev.get("status") == "sold_out"
-
-            venue = ev.get("venue") or {}
-            location = venue.get("address", {}).get("city", "Seattle") + ", WA"
-
             ticket_url = ev["url"]
 
-            events.append({
+            addr = (ev.get("venue") or {}).get("address") or {}
+            city = addr.get("city")
+            region = addr.get("region")
+            if city and region:
+              location = f"{city}, {region}"
+            elif city:
+              location = city
+            else:
+              location = None
+
+            event_data = {
               "title": ev["name"]["text"],
               "date_display": date_display,
-              "date_iso": ev["start"]["local"],
-              "location": location,
+              "date_iso": start_local.isoformat(),
               "ticket_url": ticket_url,
-              "sold_out": sold_out,
-            })
+            }
+            if location:
+              event_data["location"] = location
+            events.append(event_data)
 
           with open("data/events.json", "w") as f:
             json.dump(events, f, indent=2)

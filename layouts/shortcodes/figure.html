@@ -1,4 +1,4 @@
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
-  <img src="{{ strings.TrimPrefix "/" (.Get "src") | relURL }}" alt="{{ .Get "alt" }}">
+  <img src="{{ strings.TrimPrefix "/" (.Get "src") | relURL }}" alt="{{ .Get "alt" }}"{{ with .Get "width" }} width="{{ . }}"{{ end }}{{ with .Get "height" }} height="{{ . }}"{{ end }}{{ with .Get "loading" }} loading="{{ . }}"{{ end }}>
   {{ with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
 </figure>
